@@ -1,1 +1,1 @@
-# senior-design-project
+# NESS (Network Environment Security Scanner)
