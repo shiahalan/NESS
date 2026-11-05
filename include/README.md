@@ -1,0 +1,1 @@
+Shared headers that every module will need to agree on. Examples include pin maps, common data, etc.
