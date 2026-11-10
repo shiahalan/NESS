@@ -5,3 +5,15 @@
 // JUST PUT HELLO OR SOMETHING
 
 // ASSIGNED TO: Jonathan, Howard
+#ifndef USER_DISPLAY
+#define USER_DISPLAY
+
+void display_start()
+{
+
+}
+
+
+#endif
+
+
