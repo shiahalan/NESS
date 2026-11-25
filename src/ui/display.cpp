@@ -1,6 +1,5 @@
 #include "display.h"
 #include "../../include/config.h"
-#include <Arduino.h>
 
 void Display::configure_spi_bus() {
     auto cfg = _bus_instance.config();

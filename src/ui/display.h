@@ -28,3 +28,6 @@ public:
     Display();
     void initialize();
 };
+
+void fill_color_test(Display display);
+void poll_and_draw(Display display);
