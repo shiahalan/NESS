@@ -1,5 +1,6 @@
 #include "display.h"
 #include "../../include/config.h"
+#include <Arduino.h>
 
 void Display::configure_spi_bus() {
     auto cfg = _bus_instance.config();
@@ -87,39 +88,23 @@ Display::Display() {
     setPanel(&_panel_instance);
 }
 
-
-
-// NOTE: You cannot have multiple setup() and loop() functions defined, or else compilation will fail.
-// Move the other setup and loop function into a namespace and remove this namespace to test the display.
-/*
-#include <Arduino.h>
-namespace {
-    void fill_color_test(Display display) {
-        display.fillScreen(TFT_WHITE); delay(1000);
-        display.fillScreen(TFT_RED);   delay(1000);
-        display.fillScreen(TFT_GREEN); delay(1000);
-        display.fillScreen(TFT_BLUE);  delay(1000);
-        display.fillScreen(TFT_WHITE);
-    }
-    void poll_and_draw(Display display) {
-        int32_t x, y;
-        if (display.getTouch(&x, &y))
-            display.drawCircle(x, y, 2, TFT_RED);
-    }
-
-    Display display {};
-    void setup() {
-        Serial.begin(115200);
-        Serial.println("Display test");
-
-        display.initialize();
-        fill_color_test(display);
-
-        Serial.println("Display initialization done");
-    }
-    void loop() {
-        poll_and_draw(display);
-        delay(10);
-    }
+void fill_color_test(Display display) {
+    display.fillScreen(TFT_WHITE); delay(1000);
+    display.fillScreen(TFT_RED);   delay(1000);
+    display.fillScreen(TFT_GREEN); delay(1000);
+    display.fillScreen(TFT_BLUE);  delay(1000);
+    display.fillScreen(TFT_WHITE);
 }
-*/
+void poll_and_draw(Display display) {
+    int32_t x, y;
+    if (display.getTouch(&x, &y))
+        display.drawCircle(x, y, 2, TFT_RED);
+}
+
+Display display {};
+void setup() {
+}
+void loop() {
+    poll_and_draw(display);
+    delay(10);
+}
