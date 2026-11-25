@@ -1,6 +1,8 @@
 #include <Arduino.h>
 #include "wifi/wifi_scanner.h"
 
+Display display {};
+
 void setup() {
     Serial.begin(115200);
     delay(500);

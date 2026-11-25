@@ -100,11 +100,3 @@ void poll_and_draw(Display display) {
     if (display.getTouch(&x, &y))
         display.drawCircle(x, y, 2, TFT_RED);
 }
-
-Display display {};
-void setup() {
-}
-void loop() {
-    poll_and_draw(display);
-    delay(10);
-}
