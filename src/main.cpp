@@ -1,4 +1,4 @@
-#define TEST_WIFI
+#define TEST_UI
 
 #include <Arduino.h>
 #include "wifi/wifi_scanner.h"
@@ -22,8 +22,11 @@ void loop() {
 
 #ifdef TEST_UI
 void setup() {
+    Serial.begin(115200);
+    delay(500);
     display.initialize();
     fill_color_test(display);
+    Serial.println("Finished setup");
 }
 void loop() {
     poll_and_draw(display);

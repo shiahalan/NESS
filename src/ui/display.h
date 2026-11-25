@@ -29,5 +29,5 @@ public:
     void initialize();
 };
 
-void fill_color_test(Display display);
-void poll_and_draw(Display display);
+void fill_color_test(Display& display);
+void poll_and_draw(Display& display);

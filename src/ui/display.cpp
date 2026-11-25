@@ -87,14 +87,14 @@ Display::Display() {
     setPanel(&_panel_instance);
 }
 
-void fill_color_test(Display display) {
+void fill_color_test(Display& display) {
     display.fillScreen(TFT_WHITE); delay(1000);
     display.fillScreen(TFT_RED);   delay(1000);
     display.fillScreen(TFT_GREEN); delay(1000);
     display.fillScreen(TFT_BLUE);  delay(1000);
     display.fillScreen(TFT_WHITE);
 }
-void poll_and_draw(Display display) {
+void poll_and_draw(Display& display) {
     int32_t x, y;
     if (display.getTouch(&x, &y))
         display.drawCircle(x, y, 2, TFT_RED);
