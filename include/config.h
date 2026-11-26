@@ -20,3 +20,7 @@
 #define TP_RST 16
 #define TP_SDA 15
 #define TP_SCL 7
+
+// LCD resolution
+#define LCD_HOR_RES 320
+#define LCD_VER_RES 480

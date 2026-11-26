@@ -1,12 +1,10 @@
-#define TEST_UI
+#define TEST_UI // TEST_UI or TEST_WIFI
 
 #include <Arduino.h>
-#include "wifi/wifi_scanner.h"
-#include "ui/display.h"
 
-Display display {};
 
 #ifdef TEST_WIFI
+#include "wifi/wifi_scanner.h"
 void setup() {
     Serial.begin(115200);
     delay(500);
@@ -21,15 +19,19 @@ void loop() {
 #endif
 
 #ifdef TEST_UI
+#include "ui/display.h"
 void setup() {
     Serial.begin(115200);
     delay(500);
-    display.initialize();
-    fill_color_test(display);
-    Serial.println("Finished setup");
+    Serial.println("Starting LVGL.");
+
+    test_ui_init();
+
+    Serial.println("LVGL initialization finished.");
 }
+
 void loop() {
-    poll_and_draw(display);
-    delay(10);
+    lv_timer_handler();
+    delay(1);
 }
 #endif
