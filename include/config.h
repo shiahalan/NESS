@@ -24,3 +24,13 @@
 // LCD resolution
 #define LCD_HOR_RES 320
 #define LCD_VER_RES 480
+
+// ===================================
+// Micro-SD Card Reader Pin Definitions
+// ===================================
+
+// SD SPI pins
+#define SD_CS   9
+#define SD_MOSI 10
+#define SD_CLK  11
+#define SD_MISO 12

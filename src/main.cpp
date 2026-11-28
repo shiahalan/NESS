@@ -1,6 +1,8 @@
-#define TEST_UI // TEST_UI or TEST_WIFI
+#define TEST_LOGGER // TEST_UI or TEST_WIFI or TEST_LOGGER
 
 #include <Arduino.h>
+#include "config.h"
+#include <SD.h>
 
 
 #ifdef TEST_WIFI
@@ -34,4 +36,30 @@ void loop() {
     lv_timer_handler();
     delay(1);
 }
+#endif
+
+#ifdef TEST_LOGGER
+#include "storage/logger.h"
+
+const int chipSelect = SD_CS;
+SPIClass sdSPI(FSPI);
+
+void setup() {
+    Serial.begin(115200);
+    delay(5000);
+    Serial.println("Initializing SD card...");
+    sdSPI.begin(SD_CLK, SD_MISO, SD_MOSI, SD_CS);
+    if (!SD.begin(chipSelect, sdSPI)) {
+        Serial.println("initialization failure!");
+    } else {
+        write_file();
+        Serial.println("Initialization done.");
+    }
+}
+
+void loop() {
+    Serial.println("finished!");
+    delay(500);
+}
+
 #endif
